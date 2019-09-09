@@ -1,8 +1,6 @@
+#include "../../StringManipulation/stringarray.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-#include "../../StringManipulation/stringarray.h"
 
 /* Insertion Sort
  * 
@@ -51,5 +49,7 @@ int main(int argc, char** argv)
     printIntArray(array, arraySize);
     printf("After Sort:\n");
     printIntArray(insertionSort(array, arraySize), arraySize);
+
+    free(array);
     return 0;
 }

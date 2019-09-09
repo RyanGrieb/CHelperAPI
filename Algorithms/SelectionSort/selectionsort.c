@@ -1,5 +1,6 @@
 #include "../../StringManipulation/stringarray.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void swap(int* x1, int* x2)
 {
@@ -37,5 +38,6 @@ int main(int argc, char** argv)
     printf("After Sort:\n");
     printIntArray(selectionSort(array, arraySize), arraySize);
 
+    free(array);
     return 0;
 }
