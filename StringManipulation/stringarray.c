@@ -20,20 +20,24 @@ int* intArrayFromString(char* input)
 
     unsigned long i;
     unsigned long inputLength = strlen(input);
+    unsigned long currentNumLength = 0;
     int arrayIndex = 0;
     char currentNum[256];
 
     int* array = (int*)malloc(inputLength * sizeof(int));
 
     for (i = 0; i < inputLength; i++) {
-        if (input[i] != ',')
-            currentNum[strlen(currentNum)] = input[i];
+        if (input[i] != ',') {
+            currentNum[currentNumLength] = input[i];
+            currentNumLength++;
+        }
 
         if (input[i] == ',' || i >= inputLength - 1) {
-            currentNum[strlen(currentNum) + 1] = '\0';
+            currentNum[currentNumLength + 1] = '\0';
             array[arrayIndex] = atoi(currentNum);
-            memset(currentNum, 0, strlen(currentNum));
+            memset(currentNum, 0, currentNumLength);
             arrayIndex++;
+            currentNumLength = 0;
         }
     }
     return array;
